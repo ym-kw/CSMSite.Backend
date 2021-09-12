@@ -1,7 +1,6 @@
-package entities
+package dtos
 
-// ユーザー
-type User struct {
+type UserResponse struct {
 	Id          int    `column:"id"`
 	UserName    string `column:"userName"`
 	Password    string `column:"password"`

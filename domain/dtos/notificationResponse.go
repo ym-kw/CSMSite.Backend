@@ -1,7 +1,6 @@
-package entities
+package dtos
 
-// お知らせ
-type Notification struct {
+type NotificationResponse struct {
 	Id             int    `column:"id"`
 	Title          string `column:"title"`
 	Text           string `column:"text"`

@@ -1,7 +1,6 @@
-package entities
+package dtos
 
-// 予定表
-type Calendar struct {
+type CalendarResponse struct {
 	Id            int    `column:"id"`
 	StartDateTime string `column:"startDateTime"`
 	EndDateTime   string `column:"endDateTime"`
