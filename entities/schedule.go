@@ -1,7 +1,7 @@
 package entities
 
 // 予定表
-type Calendar struct {
+type Schedule struct {
 	Id            int    `column:"id"`
 	StartDateTime string `column:"startDateTime"`
 	EndDateTime   string `column:"endDateTime"`

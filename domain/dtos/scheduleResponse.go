@@ -1,6 +1,6 @@
 package dtos
 
-type CalendarResponse struct {
+type ScheduleResponse struct {
 	Id            int    `column:"id"`
 	StartDateTime string `column:"startDateTime"`
 	EndDateTime   string `column:"endDateTime"`
