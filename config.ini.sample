@@ -1,0 +1,10 @@
+[db]
+db_driver_name = mysql
+db_name = { データベース名 }
+db_user_name = { データベースユーザー名 }
+db_user_password = { データベースパスワード }
+db_host = 127.0.0.1
+db_port = 3306
+
+[api]
+server_port = 3000
