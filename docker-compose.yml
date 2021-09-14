@@ -7,3 +7,5 @@ services:
     command: /bin/bash
     volumes:
       - .:/go/src/github.com/CSM.Backend
+    ports:
+      - "3000:3000"
