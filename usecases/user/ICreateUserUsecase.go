@@ -4,8 +4,6 @@ import (
 	"CSMSite.Backend/domain/dtos"
 )
 
-type UserUsecase interface {
+type ICreateUserUsecase interface {
 	createUser(dtos.UserRequest) dtos.UserResponse
-	getUserList() []dtos.UserResponse
-	getUser(int) dtos.UserResponse
 }

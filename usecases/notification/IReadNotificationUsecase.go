@@ -2,8 +2,7 @@ package usecase
 
 import "CSMSite.Backend/domain/dtos"
 
-type NotificationUsecase interface {
-	createNotification(dtos.NotificationRequest) dtos.NotificationResponse
+type IReadNotificationUsecase interface {
 	getNotificationList() []dtos.NotificationResponse
 	getNotification(int) dtos.NotificationResponse
 }
