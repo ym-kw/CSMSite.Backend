@@ -1,4 +1,4 @@
-package dtos
+package Dtos
 
 type ScheduleRequest struct {
 	StartDateTime string `column:"startDateTime"`

@@ -1,7 +1,7 @@
-package usecase
+package Usecase
 
-import "CSMSite.Backend/domain/dtos"
+import "CSMSite.Backend/Domain/Dtos"
 
 type ICreateNotificationUsecase interface {
-	createNotification(dtos.NotificationRequest) dtos.NotificationResponse
+	createNotification(Dtos.NotificationRequest) Dtos.NotificationResponse
 }

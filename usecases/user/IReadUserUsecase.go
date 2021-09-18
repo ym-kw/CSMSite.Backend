@@ -1,10 +1,10 @@
-package usecase
+package Usecase
 
 import (
-	"CSMSite.Backend/domain/dtos"
+	"CSMSite.Backend/Domain/Dtos"
 )
 
 type IReadUserUsecase interface {
-	getUserList() []dtos.UserResponse
-	getUser(int) dtos.UserResponse
+	getUserList() []Dtos.UserResponse
+	getUser(int) Dtos.UserResponse
 }

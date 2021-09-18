@@ -1,4 +1,4 @@
-package dtos
+package Dtos
 
 type NotificationRequest struct {
 	Title          string `column:"title"`

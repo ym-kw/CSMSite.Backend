@@ -1,4 +1,4 @@
-package entities
+package Entities
 
 // お知らせ
 type Notification struct {

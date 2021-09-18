@@ -1,8 +1,8 @@
-package usecase
+package Usecase
 
-import "CSMSite.Backend/domain/dtos"
+import "CSMSite.Backend/Domain/Dtos"
 
 type IReadNotificationUsecase interface {
-	getNotificationList() []dtos.NotificationResponse
-	getNotification(int) dtos.NotificationResponse
+	getNotificationList() []Dtos.NotificationResponse
+	getNotification(int) Dtos.NotificationResponse
 }

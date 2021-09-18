@@ -1,4 +1,4 @@
-package dtos
+package Dtos
 
 type ScheduleResponse struct {
 	Id            int    `column:"id"`

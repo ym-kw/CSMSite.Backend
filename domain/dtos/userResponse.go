@@ -1,4 +1,4 @@
-package dtos
+package Dtos
 
 type UserResponse struct {
 	Id          int    `column:"id"`

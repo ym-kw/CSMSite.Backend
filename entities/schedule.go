@@ -1,4 +1,4 @@
-package entities
+package Entities
 
 // 予定表
 type Schedule struct {

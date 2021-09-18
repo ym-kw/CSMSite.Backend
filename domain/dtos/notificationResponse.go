@@ -1,4 +1,4 @@
-package dtos
+package Dtos
 
 type NotificationResponse struct {
 	Id             int    `column:"id"`

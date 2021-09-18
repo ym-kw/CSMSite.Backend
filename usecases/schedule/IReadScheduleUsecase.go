@@ -1,8 +1,8 @@
-package usecase
+package Usecase
 
-import "CSMSite.Backend/domain/dtos"
+import "CSMSite.Backend/Domain/Dtos"
 
 type IReadScheduleUsecase interface {
-	getScheduleList() []dtos.ScheduleResponse
-	getSchedule(int) dtos.ScheduleResponse
+	getScheduleList() []Dtos.ScheduleResponse
+	getSchedule(int) Dtos.ScheduleResponse
 }

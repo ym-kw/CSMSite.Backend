@@ -1,7 +1,7 @@
-package usecase
+package Usecase
 
-import "CSMSite.Backend/domain/dtos"
+import "CSMSite.Backend/Domain/Dtos"
 
 type ICreateScheduleUsecase interface {
-	createSchedule(dtos.ScheduleRequest) dtos.ScheduleResponse
+	createSchedule(Dtos.ScheduleRequest) Dtos.ScheduleResponse
 }

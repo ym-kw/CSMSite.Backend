@@ -1,9 +1,9 @@
-package usecase
+package Usecase
 
 import (
-	"CSMSite.Backend/domain/dtos"
+	"CSMSite.Backend/Domain/Dtos"
 )
 
 type ICreateUserUsecase interface {
-	createUser(dtos.UserRequest) dtos.UserResponse
+	createUser(Dtos.UserRequest) Dtos.UserResponse
 }

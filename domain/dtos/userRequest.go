@@ -1,4 +1,4 @@
-package dtos
+package Dtos
 
 type UserRequest struct {
 	UserName string `column:"userName"`
