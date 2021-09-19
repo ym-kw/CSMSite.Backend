@@ -1,4 +1,4 @@
-package Database
+package Infrastructure
 
 import "github.com/jinzhu/gorm"
 
