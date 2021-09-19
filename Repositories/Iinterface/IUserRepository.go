@@ -1,10 +1,10 @@
 package Repository
 
 import (
-	"CSMSite.Backend/domain/dtos"
+	"CSMSite.Backend/Domain/Dtos"
 	"github.com/jinzhu/gorm"
 )
 
 type IUserRepository interface {
-	FindById(db *gorm.DB, id int) (user dtos.UserResponse, err error)
+	FindById(db *gorm.DB, id int) (user Dtos.UserResponse, err error)
 }

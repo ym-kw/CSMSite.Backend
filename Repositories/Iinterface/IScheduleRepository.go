@@ -1,11 +1,11 @@
 package Repository
 
 import (
-	"CSMSite.Backend/domain/dtos"
+	"CSMSite.Backend/Domain/Dtos"
 	"github.com/jinzhu/gorm"
 )
 
 type IScheduleRepository interface {
-	FindByUserId(db *gorm.DB, id int) (shchedule dtos.ScheduleResponse, err error)
-	getList() (shchedule dtos.ScheduleResponse, err error)
+	FindByUserId(db *gorm.DB, id int) (shchedule Dtos.ScheduleResponse, err error)
+	getList() (shchedule Dtos.ScheduleResponse, err error)
 }
