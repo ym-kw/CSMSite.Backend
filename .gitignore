@@ -19,7 +19,7 @@ _obj
 _test
 _testmain.go
 
-config.ini
+Config.go
 
 /VERSION.cache
 /bin/
