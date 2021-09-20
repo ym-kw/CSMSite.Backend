@@ -1,4 +1,4 @@
-package Repository
+package Repositories
 
 import (
 	"CSMSite.Backend/Domain/Dtos"
