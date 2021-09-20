@@ -1,4 +1,4 @@
-package Repositories
+package IRepositories
 
 import "github.com/jinzhu/gorm"
 

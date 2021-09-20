@@ -1,4 +1,4 @@
-package Repositories
+package IRepositories
 
 import (
 	"CSMSite.Backend/Domain/Dtos"
