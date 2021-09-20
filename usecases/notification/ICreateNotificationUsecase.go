@@ -1,4 +1,4 @@
-package Usecases
+package NotificationUsecases
 
 import "CSMSite.Backend/Domain/Dtos"
 

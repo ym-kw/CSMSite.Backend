@@ -1,4 +1,4 @@
-package Usecases
+package ScheduleUsecases
 
 import "CSMSite.Backend/Domain/Dtos"
 

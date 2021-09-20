@@ -1,4 +1,4 @@
-package Usecases
+package UserUsecases
 
 import (
 	"CSMSite.Backend/Domain/Dtos"
