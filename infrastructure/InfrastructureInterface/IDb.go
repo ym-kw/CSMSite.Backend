@@ -1,8 +1,8 @@
-package Infrastructure
+package InfrastructureInterface
 
 import "github.com/jinzhu/gorm"
 
-type Db interface {
+type IDb interface {
 	begin() *gorm.DB
 	connect() *gorm.DB
 }
