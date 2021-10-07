@@ -1,12 +1,12 @@
 package Repositories
 
 import (
-	Repositories "CSMSite.Backend/Repositories/Interface"
+	"CSMSite.Backend/Repositories/IRepositories"
 	"github.com/jinzhu/gorm"
 )
 
 type DbRepository struct {
-	DbRepository Repositories.IDbRepository
+	DbRepository IRepositories.IDbRepository
 }
 
 func (db *DbRepository) Begin() *gorm.DB {

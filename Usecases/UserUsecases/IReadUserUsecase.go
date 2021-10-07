@@ -5,6 +5,6 @@ import (
 )
 
 type IReadUserUsecase interface {
-	getUserList() []Dtos.UserResponse
-	getUser(int) Dtos.UserResponse
+	GetUserList() []Dtos.UserResponse
+	GetUser(int) Dtos.UserResponse
 }
