@@ -2,7 +2,10 @@ package Infrastructure
 
 import (
 	"CSMSite.Backend/Controllers"
+	_ "CSMSite.Backend/docs"
 	"github.com/gin-gonic/gin"
+	ginSwagger "github.com/swaggo/gin-swagger"
+	"github.com/swaggo/gin-swagger/swaggerFiles"
 )
 
 type Routing struct {
@@ -26,6 +29,7 @@ func (r *Routing) setRouting() {
 	r.Gin.GET("/user/:id", func(c *gin.Context) { usersController.Get(c) })
 	r.Gin.GET("/users", func(c *gin.Context) { usersController.GetAll(c) })
 	r.Gin.POST("/user", func(c *gin.Context) { usersController.Post(c) })
+	r.Gin.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 }
 
 func (r *Routing) Run() {
