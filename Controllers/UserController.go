@@ -6,6 +6,7 @@ import (
 	UserInteractor "CSMSite.Backend/Domain/User"
 	"CSMSite.Backend/Infrastructure/InfrastructureInterface"
 	"CSMSite.Backend/Repositories"
+	"github.com/gin-gonic/gin"
 )
 
 type UserController struct {
@@ -26,13 +27,29 @@ func NewUserController(db InfrastructureInterface.IDb) *UserController {
 	}
 }
 
-func (controller *UserController) Get(c Context) {
-	id, _ := strconv.Atoi(c.Param("id"))
+func (controller *UserController) Get(c *gin.Context) {
+	id, _ := strconv.Atoi(c.Params.ByName("id"))
 
 	user, err := controller.readUserInteractor.GetUser(id)
 	if err != nil {
-		c.JSON(501, nil)
+		c.AbortWithStatus(404)
 		return
 	}
-	c.JSON(200, NewH("success", user))
+	c.JSON(200, user)
+}
+
+func (controller *UserController) GetAll(c *gin.Context) {
+	users, err := controller.readUserInteractor.GetAllUsers()
+	if err != nil {
+		c.AbortWithStatus(404)
+	}
+	c.JSON(200, users)
+}
+
+func (controller *UserController) Post(c *gin.Context) {
+	user, err := controller.createUserInteractor.CreateUser(c)
+	if err != nil {
+		c.AbortWithStatus(404)
+	}
+	c.JSON(200, user)
 }

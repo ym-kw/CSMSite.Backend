@@ -1,11 +1,13 @@
 package UserInteractor
 
 import (
+	"encoding/json"
 	"time"
 
 	"CSMSite.Backend/Domain/Dtos"
 	"CSMSite.Backend/Entities"
 	"CSMSite.Backend/Repositories/IRepositories"
+	"github.com/gin-gonic/gin"
 )
 
 type CreateUserInteractor struct {
@@ -13,8 +15,13 @@ type CreateUserInteractor struct {
 	User IRepositories.IUserRepository
 }
 
-func (interactor *CreateUserInteractor) CreateUser(req Dtos.UserRequest) (user Dtos.UserResponse, err error) {
+func (interactor *CreateUserInteractor) CreateUser(c *gin.Context) (user Dtos.UserResponse, err error) {
 	db := interactor.Db.Connect()
+
+	body := make([]byte, c.Request.ContentLength)
+	c.Request.Body.Read(body)
+	var req Dtos.UserRequest
+	json.Unmarshal(body, &req)
 
 	newUser := Entities.User{
 		UserName:    req.UserName,

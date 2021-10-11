@@ -24,4 +24,10 @@ func NewRouting(db *Db) *Routing {
 func (r *Routing) setRouting() {
 	usersController := Controllers.NewUserController(r.DB)
 	r.Gin.GET("/user/:id", func(c *gin.Context) { usersController.Get(c) })
+	r.Gin.GET("/users", func(c *gin.Context) { usersController.GetAll(c) })
+	r.Gin.POST("/user", func(c *gin.Context) { usersController.Post(c) })
+}
+
+func (r *Routing) Run() {
+	r.Gin.Run(r.Port)
 }

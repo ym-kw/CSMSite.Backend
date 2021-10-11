@@ -1,6 +1,7 @@
 package Infrastructure
 
 import (
+	"CSMSite.Backend/Entities"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
@@ -24,11 +25,12 @@ func NewDb() *Db {
 }
 
 func newDb(d *Db) *Db {
-	db, err := gorm.Open("mysql", d.Username+":"+d.Password+"@tcp("+d.Host+")/"+d.DbName+"?charset=utf-8&parseTime=True&loc=Local")
+	db, err := gorm.Open("mysql", d.Username+":"+d.Password+"@tcp("+d.Host+")/"+d.DbName+"?charset=utf8&parseTime=True&loc=Local")
 	if err != nil {
 		panic(err.Error())
 	}
 	d.Connection = db
+	d.autoMigration()
 	return d
 }
 
@@ -38,4 +40,10 @@ func (db *Db) Begin() *gorm.DB {
 
 func (db *Db) Connect() *gorm.DB {
 	return db.Connection
+}
+
+func (db *Db) autoMigration() {
+	db.Connection.AutoMigrate(&Entities.User{})
+	db.Connection.AutoMigrate(&Entities.Schedule{})
+	db.Connection.AutoMigrate(&Entities.Notification{})
 }

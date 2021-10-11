@@ -3,24 +3,23 @@ package Repositories
 import (
 	"errors"
 
-	"CSMSite.Backend/Domain/Dtos"
 	"CSMSite.Backend/Entities"
 	"github.com/jinzhu/gorm"
 )
 
 type UserRepository struct{}
 
-func (repo *UserRepository) FindAll(db *gorm.DB) (user []Dtos.UserResponse, err error) {
+func (repo *UserRepository) FindAll(db *gorm.DB) (user []Entities.User, err error) {
 	result := db.Find(&user)
 
 	return user, result.Error
 }
 
-func (repo *UserRepository) FindById(db *gorm.DB, id int) (user Dtos.UserResponse, err error) {
-	user = Dtos.UserResponse{}
+func (repo *UserRepository) FindById(db *gorm.DB, id int) (user Entities.User, err error) {
+	user = Entities.User{}
 	db.First(&user, id)
 	if user.Id <= 0 {
-		return Dtos.UserResponse{}, errors.New("user is not found")
+		return Entities.User{}, errors.New("user is not found")
 	}
 	return user, nil
 }
