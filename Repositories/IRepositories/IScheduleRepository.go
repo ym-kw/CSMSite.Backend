@@ -2,10 +2,12 @@ package IRepositories
 
 import (
 	"CSMSite.Backend/Domain/Dtos"
+	"CSMSite.Backend/Entities"
 	"github.com/jinzhu/gorm"
 )
 
 type IScheduleRepository interface {
-	FindByUserId(db *gorm.DB, id int) (shchedule Dtos.ScheduleResponse, err error)
-	getList() (shchedule Dtos.ScheduleResponse, err error)
+	FindAll(db *gorm.DB) (shchedule Dtos.ScheduleResponse, err error)
+	FindByUserId(db *gorm.DB, userId int) (shchedule Dtos.ScheduleResponse, err error)
+	Create(db *gorm.DB, req Entities.Schedule) (schedule Entities.Schedule, err error)
 }
