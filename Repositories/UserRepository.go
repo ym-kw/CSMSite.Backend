@@ -9,10 +9,10 @@ import (
 
 type UserRepository struct{}
 
-func (repo *UserRepository) FindAll(db *gorm.DB) (user []Entities.User, err error) {
-	result := db.Find(&user)
+func (repo *UserRepository) FindAll(db *gorm.DB) (users []Entities.User, err error) {
+	result := db.Find(&users)
 
-	return user, result.Error
+	return users, result.Error
 }
 
 func (repo *UserRepository) FindById(db *gorm.DB, id int) (user Entities.User, err error) {
