@@ -1,7 +1,10 @@
 package ScheduleUsecases
 
-import "CSMSite.Backend/Domain/Dtos"
+import (
+	"CSMSite.Backend/Domain/Dtos"
+	"github.com/gin-gonic/gin"
+)
 
 type ICreateScheduleUsecase interface {
-	createSchedule(Dtos.ScheduleRequest) Dtos.ScheduleResponse
+	CreateSchedule(c *gin.Context) (schedule Dtos.ScheduleResponse, err error)
 }

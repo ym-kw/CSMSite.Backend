@@ -3,6 +3,6 @@ package ScheduleUsecases
 import "CSMSite.Backend/Domain/Dtos"
 
 type IReadScheduleUsecase interface {
-	getScheduleList() []Dtos.ScheduleResponse
-	getSchedule(int) Dtos.ScheduleResponse
+	GetAllSchedules() (schedules []Dtos.ScheduleResponse, err error)
+	GetMySchedules(userId int) (schedules []Dtos.ScheduleResponse, err error)
 }
