@@ -26,10 +26,14 @@ func NewRouting(db *Db) *Routing {
 
 func (r *Routing) setRouting() {
 	usersController := Controllers.NewUserController(r.DB)
-	r.Gin.GET("/user/:id", func(c *gin.Context) { usersController.Get(c) })
-	r.Gin.GET("/users", func(c *gin.Context) { usersController.GetAll(c) })
-	r.Gin.POST("/user", func(c *gin.Context) { usersController.Post(c) })
+	scheduleController := Controllers.NewScheduleController(r.DB)
 	r.Gin.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+	r.Gin.GET("/users", func(c *gin.Context) { usersController.GetAll(c) })
+	r.Gin.GET("/user/:id", func(c *gin.Context) { usersController.Get(c) })
+	r.Gin.POST("/user", func(c *gin.Context) { usersController.Post(c) })
+	r.Gin.GET("/schedules", func(c *gin.Context) { scheduleController.GetAll(c) })
+	r.Gin.GET("/schedules/:userId", func(c *gin.Context) { scheduleController.Get(c) })
+	r.Gin.POST("/schedule", func(c *gin.Context) { scheduleController.Post(c) })
 }
 
 func (r *Routing) Run() {
