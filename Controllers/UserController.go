@@ -6,23 +6,24 @@ import (
 	UserInteractor "CSMSite.Backend/Domain/User"
 	"CSMSite.Backend/Infrastructure/InfrastructureInterface"
 	"CSMSite.Backend/Repositories"
+	"CSMSite.Backend/Usecases/UserUsecases"
 	"github.com/gin-gonic/gin"
 )
 
 type UserController struct {
-	readUserInteractor   UserInteractor.ReadUserInteractor
-	createUserInteractor UserInteractor.CreateUserInteractor
+	readUserInteractor   UserUsecases.IReadUserUsecase
+	createUserInteractor UserUsecases.ICreateUserUsecase
 }
 
 func NewUserController(db InfrastructureInterface.IDb) *UserController {
 	return &UserController{
-		readUserInteractor: UserInteractor.ReadUserInteractor{
-			Db:   &Repositories.DbRepository{DbRepository: db},
-			User: &Repositories.UserRepository{},
+		readUserInteractor: &UserInteractor.ReadUserInteractor{
+			Db:             &Repositories.DbRepository{DbRepository: db},
+			UserRepository: &Repositories.UserRepository{},
 		},
-		createUserInteractor: UserInteractor.CreateUserInteractor{
-			Db:   &Repositories.DbRepository{DbRepository: db},
-			User: &Repositories.UserRepository{},
+		createUserInteractor: &UserInteractor.CreateUserInteractor{
+			Db:             &Repositories.DbRepository{DbRepository: db},
+			UserRepository: &Repositories.UserRepository{},
 		},
 	}
 }

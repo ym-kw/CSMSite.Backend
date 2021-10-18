@@ -12,7 +12,7 @@ import (
 
 type CreateUserInteractor struct {
 	Db   IRepositories.IDbRepository
-	User IRepositories.IUserRepository
+	UserRepository IRepositories.IUserRepository
 }
 
 func (interactor *CreateUserInteractor) CreateUser(c *gin.Context) (user Dtos.UserResponse, err error) {
@@ -23,29 +23,32 @@ func (interactor *CreateUserInteractor) CreateUser(c *gin.Context) (user Dtos.Us
 	var req Dtos.UserRequest
 	json.Unmarshal(body, &req)
 
+	now := time.Now().Format("2006-01-02T15:04:05+09:00")
+
 	newUser := Entities.User{
 		UserName:    req.UserName,
 		Password:    req.Password,
 		Email:       req.Email,
 		Admin:       false,
 		DisableFlag: false,
-		CreatedAt:   time.Now().Format("2006-01-02T15:04:05+09:00"),
-		UpdatedAt:   time.Now().Format("2006-01-02T15:04:05+09:00"),
+		CreatedAt:   now,
+		UpdatedAt:   now,
 	}
 
-	createUser, err := interactor.User.Create(db, newUser)
+	createdUser, err := interactor.UserRepository.Create(db, newUser)
 	if err != nil {
 		return Dtos.UserResponse{}, err
 	}
+
 	user = Dtos.UserResponse{
-		Id:          createUser.Id,
-		UserName:    createUser.UserName,
-		Password:    createUser.Password,
-		Email:       createUser.Email,
-		Admin:       createUser.Admin,
-		DisableFlag: createUser.DisableFlag,
-		CreatedAt:   createUser.CreatedAt,
-		UpdatedAt:   createUser.UpdatedAt,
+		Id:          createdUser.Id,
+		UserName:    createdUser.UserName,
+		Password:    createdUser.Password,
+		Email:       createdUser.Email,
+		Admin:       createdUser.Admin,
+		DisableFlag: createdUser.DisableFlag,
+		CreatedAt:   createdUser.CreatedAt,
+		UpdatedAt:   createdUser.UpdatedAt,
 	}
 	return user, err
 }

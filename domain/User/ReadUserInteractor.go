@@ -7,13 +7,13 @@ import (
 
 type ReadUserInteractor struct {
 	Db   IRepositories.IDbRepository
-	User IRepositories.IUserRepository
+	UserRepository IRepositories.IUserRepository
 }
 
 func (interactor *ReadUserInteractor) GetUser(id int) (user Dtos.UserResponse, err error) {
 	db := interactor.Db.Connect()
 
-	foundUser, err := interactor.User.FindById(db, id)
+	foundUser, err := interactor.UserRepository.FindById(db, id)
 	if err != nil {
 		return Dtos.UserResponse{}, err
 	}
@@ -35,7 +35,7 @@ func (interactor *ReadUserInteractor) GetUser(id int) (user Dtos.UserResponse, e
 func (interactor *ReadUserInteractor) GetAllUsers() (users []Dtos.UserResponse, err error) {
 	db := interactor.Db.Connect()
 
-	foundUsers, err := interactor.User.FindAll(db)
+	foundUsers, err := interactor.UserRepository.FindAll(db)
 	if err != nil {
 		return []Dtos.UserResponse{}, err
 	}
