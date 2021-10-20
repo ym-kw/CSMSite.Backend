@@ -6,7 +6,6 @@ type Schedule struct {
 	StartDateTime string `column:"startDateTime"`
 	EndDateTime   string `column:"endDateTime"`
 	UserId        int    `column:"userId"`
-	User          User   `column:"user"`
 	DisableFlag   bool   `column:"disableFlag"`
 	CreatedAt     string `column:"createdAt"`
 	UpdatedAt     string `column:"updatedAt"`
